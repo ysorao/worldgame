@@ -6,6 +6,4 @@ def lanzar_dado():
     return resultado
 
 # Esperar a que el usuario presione Enter
-input("Presiona Enter para lanzar el dado...")
-resultado_dado = lanzar_dado()
-print(f"Has lanzado un {resultado_dado}")
+
