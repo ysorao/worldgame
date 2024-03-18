@@ -3,32 +3,70 @@ from ubicacion import *
 from tableroIni import *
 from mensajes import *
 from dado import *
-
-# print("--------------------------------------------------\n--------------------------------------------------")
-# print("--------------------------------------------------\n--------------------------------------------------")
-
-print("********************************\n***        WORLD GAME        ***\n********************************")
+from casillas import *
+from preguntas import *
 
 
-# print(mensaje_bienvenida)
-# tablero_inicial()
+print(encabezado)
+print(mensaje_bienvenida)
+tablero_inicial()
 
-'''REcolectar  Nombre del usuario'''
+
+#Oportunidades
+
+oportunidades = 3
+casillaJugador = 0
+
+'''Recolectar y almacenar Nombre del usuario'''
 usuario =  input("Ingresa tu nombre de usuario: ")
-
 print(f"Bienvenido:  {usuario}")
 
+'''Variable  que almacena el numero de intentos por partida'''
+numeroIntentos = 3
+
+
 '''Lanzamiento del  dado'''
-input("Presiona Enter para lanzar el dado...")
-resultado_dado = lanzar_dado()
-print(f"Has lanzado un {resultado_dado}")
+def lanzarDado():
+    global nuevaUbicacion
+    global casillaJugador
+    input("Presiona Enter para lanzar el dado...")
+    resultado_dado = lanzar_dado()
+    print(f"Has lanzado un {resultado_dado}")
+    casillaJugador += resultado_dado
+    nuevaUbicacion = coordTab[casillaJugador-1]
+    tablero_ubicacion(nuevaUbicacion)
 
 
-''' Asignación de la casilla'''
-casillaJugador =0
-casillaJugador += resultado_dado
-nuevaUbicacion = coordTab[casillaJugador-1]
-tablero_ubicacion(nuevaUbicacion)
+
+def validaCasillas(ubicacion):
+    global tipoCasilla
+    
+    if ubicacion in preguntas:
+        print("has caído en una casilla ", ubicacion,  " de tipo PREGUNTA")
+
+        tipoCasilla="Pregunta"
+    elif ubicacion in penalidad: 
+        print("has caído en una casilla ", ubicacion,  " de tipo PENALIDAD")
+        tipoCasilla= "Penalidad"
+    elif ubicacion in premio:
+        print("has caído en una casilla ", ubicacion,  " de tipo PREMIO")
+        tipoCasilla= "Premio"
+    else:
+        print("has caído en una casilla ", ubicacion,  " de tipo VACÍA")
+        tipoCasilla = 'Vacia'
+    return tipoCasilla
+
+
+while numeroIntentos  > 0 :
+    lanzarDado()
+    validaCasillas(casillaJugador)
+    if tipoCasilla =="Pregunta":
+        hacer_pregunta()
+        
+
+
+
+
 
 
 # input(mensaje_inicio)
