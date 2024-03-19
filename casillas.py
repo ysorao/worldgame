@@ -17,5 +17,25 @@ premio=[6,20,51]
 #Preguntas
 preguntas = [3,9,12,13,17,22,36,45,50,59]
 
+ganador =[64]
 
 
+
+def validaCasillas(ubicacion):
+    global tipoCasilla
+    
+    if ubicacion in preguntas:
+        print("\nHas caído en la casilla ", ubicacion,  " de tipo PREGUNTA")
+        tipoCasilla="Pregunta"
+    elif ubicacion in penalidad: 
+        print("\nHas caído en la casilla ", ubicacion,  " de tipo PENALIDAD")
+        tipoCasilla= "Penalidad"
+    elif ubicacion in premio:
+        print("\nHas caído en la casilla ", ubicacion,  " de tipo PREMIO")
+        tipoCasilla= "Premio"
+    elif ubicacion in ganador:
+        print("\nHas llegado al final del Juego")
+    else:
+        print("\nHas caído en la casilla ", ubicacion,  " de tipo VACÍA")
+        tipoCasilla = 'Vacia'
+    return tipoCasilla
