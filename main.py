@@ -57,12 +57,23 @@ def validaCasillas(ubicacion):
     return tipoCasilla
 
 
-while numeroIntentos  > 0 :
+while oportunidades  > 0 :
     lanzarDado()
     validaCasillas(casillaJugador)
     if tipoCasilla =="Pregunta":
-        hacer_pregunta()
+        hacer_pregunta(3)
         
+    elif tipoCasilla == "Premio":
+        print("Avanzas 10 casillas de premio! , esta es tu nueva ubicacion")
+        casillaJugador += 10
+        nuevaUbicacion = coordTab[casillaJugador-1]
+        tablero_ubicacion(nuevaUbicacion)
+    elif  tipoCasilla=="Penalidad":
+        print("Lo siento! retrocede 10 casillas de premio! , esta es tu nueva ubicacion")
+        casillaJugador -= 10
+        nuevaUbicacion = coordTab[casillaJugador-1]
+        tablero_ubicacion(nuevaUbicacion)
+    
 
 
 

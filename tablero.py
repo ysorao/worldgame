@@ -9,7 +9,7 @@ def tablero_ubicacion(coordenadas):
                 else:
                     # Ajustar las coordenadas para el tablero impreso
                     if fila == coordenadas[0] * 2 + 1 and columna == coordenadas[1] * 2 + 1:
-                        print(" Y ", end="")
+                        print(" X ", end="")
                     else:
                         print("   ", end="")
             print("|")  # Cierre de fila

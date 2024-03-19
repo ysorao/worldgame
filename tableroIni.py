@@ -20,5 +20,5 @@ def tablero_inicial():
                     num +=1
                     
             print("|")  # Cierre de fila
-  # Coordenadas donde se colocará la inicial del jugador  o un identificador
 # tablero_inicial()
+            

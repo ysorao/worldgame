@@ -1,8 +1,3 @@
-# for x in range(0,8):
-#     for y in range(0,8):
-#         newCoor= (x,y)
-#         coordAp.append(newCoor)
-
 
 coordTab = [(7, 0), (7, 1), (7, 2), (7, 3), (7, 4), (7, 5), (7, 6), (7, 7), 
             (6, 7), (6, 6), (6, 5), (6, 4), (6, 3), (6, 2), (6, 1), (6, 0), 
@@ -15,6 +10,4 @@ coordTab = [(7, 0), (7, 1), (7, 2), (7, 3), (7, 4), (7, 5), (7, 6), (7, 7),
 
 
 
-# Mostrando la coordenada
-print("La coordenada en el índice 48 es:", coordTab[48])
-# print (coordTab[1])        
+    
