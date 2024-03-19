@@ -14,7 +14,6 @@ print(encabezado)
 
 listar_top_5()
 
-
 print(mensaje_bienvenida)
 
 tablero_inicial()
@@ -26,7 +25,7 @@ tablero_inicial()
 casillaJugador = 0
 
 #Puntaje Jugador
-puntaje=100
+puntaje = 100
 
 
 # usuario
@@ -52,7 +51,6 @@ while True:
         if nivel.isdigit():
             nivel = int(nivel)
             if nivel in niveles:
-                
                 break
             else:
                 print("Número fuera de rango. Por favor, elija un nivel entre 1, 2 o 3.")
@@ -75,9 +73,9 @@ elif nivel == 3:
 if nivel ==1:
     oportunidades = 5
 elif nivel == 2:
-       oportunidades = 3
+    oportunidades = 3
 elif nivel == 3:
-        oportunidades = 1
+    oportunidades = 1
 
 
 
@@ -116,8 +114,7 @@ el bucle casillaJugador se encarga de darle  continuidad al juego hasta que lleg
 while casillaJugador <= 63 :
     lanzarDado()
     puntaje = puntaje -2
-    print(puntaje)
-
+    
     tipoCasilla = validaCasillas(casillaJugador)
     if tipoCasilla =="Pregunta":
         oportunidades_restantes = hacer_pregunta(oportunidades)

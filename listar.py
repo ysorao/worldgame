@@ -7,4 +7,4 @@ def listar_top_5():
     top_5 = concursantes[:5]
     print("***** Top 5 Concursantes *****")
     for i, (nombre, puntaje) in enumerate(top_5, start=1):
-        print(f"{i}. {nombre} - {puntaje} puntos")
+        print(f"{i}. {nombre} - {puntaje} puntos ")
