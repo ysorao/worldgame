@@ -8,6 +8,10 @@
 '''la lista de penalidad contiene las casillas que son objeto de penalizaciones, si el jugador cae en alguna de ellas , se regresa  automaticamente 10 casillas
 '''
 penalidad=[23,31,60]
+penalidad_2=[23,31,60]
+penalidad_3=[23,31,60]
+
+
 
 #premios
 ''' La lista de premio contiene aquellas casillas que en caso de ser visitadas por el jugador avanzará 10 posiciones de manera automati 

@@ -46,6 +46,7 @@ while True:
 print(f"Bienvenido:  {usuario}")
 
 
+
 # Nivel de dificultad
 '''
 Se presentan las opciones de niveles de dificultad para que seleccione antes de iniciar el juego
@@ -92,6 +93,7 @@ def jugar():
     global nuevaUbicacion
     global casillaJugador
     global puntaje
+
     print ("Puntos: ", puntaje) # Se muestra el puntaje antes de lanzar el dado y avanzar
 
     input("Presiona Enter para lanzar el dado...") # lanzar el dado para obtener el numero de casillas a avanzar
@@ -103,10 +105,10 @@ def jugar():
         print(f"Solo te faltan {64 - (casillaJugador - resultado_dado)} casillas, debes lanzar de nuevo")
         casillaJugador -= resultado_dado
     elif casillaJugador == 64:
-        bonus = len(preguntas_realizadas) * 15
-        puntaje = puntaje + bonus 
+        bonus_preguntas = len(preguntas_realizadas) * 15
+        puntaje = puntaje + bonus_preguntas 
         guardar_concursante(usuario, puntaje)
-        print(f"El  Juego ha finalizado,  Muy bien!!, tu puntaje final es: " )
+        print(f"El  Juego ha finalizado,  Muy bien!!, tu puntaje final es: {puntaje} " )
 
                 
     else:
