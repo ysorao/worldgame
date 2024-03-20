@@ -9,13 +9,16 @@ from guardar import *
 from leerResultados import *
 from listar import *
 
-
+# Imprimir el nombre del juego
 print(encabezado)
 
+# imprime el top 5 de los mejores puntajes
 listar_top_5()
 
+# Imprime el mensaje de bienvenida y las instrucciones
 print(mensaje_bienvenida)
 
+# Imprime una muestra del tablero del juego
 tablero_inicial()
 
 
@@ -25,6 +28,7 @@ tablero_inicial()
 casillaJugador = 0
 
 #Puntaje Jugador
+'''Para dar inicio al juego se cargan 100 puntos'''
 puntaje = 100
 
 
@@ -38,16 +42,19 @@ while True:
         break
 
 
-# Mensaje    
+# Mensaje de saludo al Juagador    
 print(f"Bienvenido:  {usuario}")
 
 
 # Nivel de dificultad
+'''
+Se presentan las opciones de niveles de dificultad para que seleccione antes de iniciar el juego
+'''
 niveles = [1,2,3]
 
 while True:
     try:
-        nivel =  input("\nSelecciona el nivel de dificultad, ingresa 1, 2 o 3 de acuerdo con la siguiente información:\n\n1 - Fácil: contiene mas intentos de respuestas y más casillas de Premio \n2 - Medio: Las casillas de premio disminuyen al igual que los intentos \n3 - Difícil: solo tienes 1 intento y las preguntas son mas complejas.\nIngresa tu seleccion: ")
+        nivel =  input(mensaje_niveles)
         if nivel.isdigit():
             nivel = int(nivel)
             if nivel in niveles:
@@ -59,6 +66,7 @@ while True:
     except ValueError:
         print("Entrada no válida. Por favor, ingrese un número entre 1,2 o 3.")
 
+# Asignacion del nivel de dificultad
 if nivel == 1:
     print(mensaje_dificultad_1)
 elif nivel == 2:
@@ -79,64 +87,63 @@ elif nivel == 3:
 
 
 
-
-
-'''Lanzamiento del  dado'''
-def lanzarDado():
+'''Inicio del Juego'''
+def jugar():
     global nuevaUbicacion
     global casillaJugador
     global puntaje
-    print ("Puntos: ", puntaje)
+    print ("Puntos: ", puntaje) # Se muestra el puntaje antes de lanzar el dado y avanzar
 
-
-    input("Presiona Enter para lanzar el dado...")
+    input("Presiona Enter para lanzar el dado...") # lanzar el dado para obtener el numero de casillas a avanzar
     resultado_dado = lanzar_dado()
     print(f"\nHas lanzado un {resultado_dado}\n")
-    casillaJugador += resultado_dado
-    
-    if casillaJugador > 64:
+    casillaJugador += resultado_dado    # Actualiza la casilla del jugador
+
+    if casillaJugador > 64: # Valida si el jugador llegó al final del juego
         print(f"Solo te faltan {64 - (casillaJugador - resultado_dado)} casillas, debes lanzar de nuevo")
         casillaJugador -= resultado_dado
     elif casillaJugador == 64:
-        print("El  Juego ha finalizado,  Muy bien!!")
         bonus = len(preguntas_realizadas) * 15
-        puntaje = puntaje + bonus
+        puntaje = puntaje + bonus 
         guardar_concursante(usuario, puntaje)
+        print(f"El  Juego ha finalizado,  Muy bien!!, tu puntaje final es: " )
+
                 
     else:
         nuevaUbicacion = coordTab[casillaJugador-1]
         tablero_ubicacion(nuevaUbicacion)
         puntaje += resultado_dado
 
-
 '''
 el bucle casillaJugador se encarga de darle  continuidad al juego hasta que llegue a la casilla 64 o se terminen las oportunidades de respuesta
 '''
 
 while casillaJugador <= 63 :
-    lanzarDado()
+    jugar()
     puntaje = puntaje -2
     
-    tipoCasilla = validaCasillas(casillaJugador)
+    tipoCasilla = validaCasillas(casillaJugador) # REcibe el tipo de casilla para generar las actividaes al jugador
     if tipoCasilla =="Pregunta":
         oportunidades_restantes = hacer_pregunta(oportunidades)
         oportunidades = oportunidades_restantes
 
-        if oportunidades_restantes == 0:
+        if oportunidades_restantes == 0: # Control de numero de oportunidades
             print(mensaje_final)
             print("Puntos obtenidos: ",puntaje)
             break    
+
     elif tipoCasilla == "Premio":
         print("Avanzas 10 casillas de premio! , esta es tu nueva ubicacion")
-        casillaJugador += 10
+        casillaJugador += 10 # Adiciona 10 posiciones al jugador como premio
         nuevaUbicacion = coordTab[casillaJugador-1]
         tablero_ubicacion(nuevaUbicacion)
-        puntaje = puntaje +10
+        puntaje = puntaje + 10 # Aumenta el puntaje en 10 puntos 
+
     elif  tipoCasilla == "Penalidad":
         print("Lo siento! retrocede 10 casillas! , esta es tu nueva ubicacion")
-        casillaJugador -= 10
+        casillaJugador -= 10 # Resta 10 casillas  al jugador por penalizacion
         nuevaUbicacion = coordTab[casillaJugador-1]
         tablero_ubicacion(nuevaUbicacion)
-        puntaje = puntaje - 10
+        puntaje = puntaje - 10 # Resta 10 puntos  al jugador como penalidad
     
 

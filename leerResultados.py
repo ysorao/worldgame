@@ -1,3 +1,7 @@
+'''
+La funcion leer_concursantes valida la informacion que se encuentra en el archivo .txt para preparar la lista de historico de jugadores 
+'''
+
 def leer_concursantes():
     concursantes = []
     try:

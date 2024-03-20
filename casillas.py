@@ -15,12 +15,16 @@ penalidad=[23,31,60]
 premio=[6,20,51]
 
 #Preguntas
+''' La lista de premio contiene aquellas casillas que generan preguntas  
+'''
 preguntas = [3,9,12,13,17,22,36,45,50,59]
 
 ganador =[64]
 
 
-
+'''
+La  funcion validaCasillas recibe el parametro de la ubicacion actual del jugador y valida si esta en alguna de las listas de premio, penalizacion o pregunta
+'''
 def validaCasillas(ubicacion):
     global tipoCasilla
     

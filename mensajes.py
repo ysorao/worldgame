@@ -8,7 +8,11 @@ mensaje_bienvenida = "\nBienvenido al concurso WORLD GAME, \n\nInstrucciones:\n\
 mensaje_inicio = "Si Quiere Iniciar el Juego ingrese Y o  N para salir: "
 
 mensaje_final = "Lo sentimos, se superó el numero de intentos, este es el final del Juego "
+
 mensaje_dificultad_1="\nHas seleccionado el Nivel de Dificultad Fácil, tienes 5 oportunidades para contestar las preguntas durante el juego y más casillas de PREMIO que te permitiran avanzar más rapido en el Juego.\n"
+
 mensaje_dificultad_2="\nHas seleccionado el Nivel de Dificultad Medio, tienes 3 oportunidades para contestar las preguntas durante el juego.\n"
+
 mensaje_dificultad_3="\nHas seleccionado el Nivel de Dificultad Dificil, tienes 1 oportunidad para contestar las preguntas durante el juego y las preguntas tienen un nivel de dificultad mayor\n"
 
+mensaje_niveles = "\nSelecciona el nivel de dificultad, ingresa 1, 2 o 3 de acuerdo con la siguiente información:\n\n1 - Fácil: contiene mas intentos de respuestas y más casillas de Premio \n2 - Medio: Las casillas de premio disminuyen al igual que los intentos \n3 - Difícil: solo tienes 1 intento y las preguntas son mas complejas.\nIngresa tu seleccion: "
