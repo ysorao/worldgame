@@ -20,5 +20,5 @@ def tablero_inicial():
                     num +=1
                     
             print("|")  # Cierre de fila
-# tablero_inicial()
+#tablero_inicial()
             

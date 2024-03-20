@@ -99,6 +99,8 @@ def lanzarDado():
         casillaJugador -= resultado_dado
     elif casillaJugador == 64:
         print("El  Juego ha finalizado,  Muy bien!!")
+        bonus = len(preguntas_realizadas) * 15
+        puntaje = puntaje + bonus
         guardar_concursante(usuario, puntaje)
                 
     else:
