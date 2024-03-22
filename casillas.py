@@ -1,8 +1,3 @@
-#Preguntas
-'''Creamos una lista con preguntas, cada pregunta tiene 2 partes: 
-    1. Pregunta que se realiza al jugador.
-    2. Respuesta
-'''
 
 # Penalidad
 '''la lista de penalidad contiene las casillas que son objeto de penalizaciones, si el jugador cae en alguna de ellas , se regresa  automaticamente 10 casillas
@@ -27,11 +22,11 @@ ganador =[64]
 
 
 '''
-La  funcion validaCasillas recibe el parametro de la ubicacion actual del jugador y valida si esta en alguna de las listas de premio, penalizacion o pregunta
+La  funcion validaCasillas recibe el parametro de la ubicacion actual del jugador y valida si esta en alguna de las listas de premio, penalizacion o pregunta, retorna el tipo de casilla para ser usado por el modulo principal
 '''
-def validaCasillas(ubicacion):
-    global tipoCasilla
-    
+def validaCasillas(ubicacion): 
+    global tipoCasilla # Esta variable es global ya que se requiere usar por el modulo principal para definir el paso siguiente en el juego después de lanzar el dado.
+
     if ubicacion in preguntas:
         print("\nHas caído en la casilla ", ubicacion,  " de tipo PREGUNTA")
         tipoCasilla="Pregunta"

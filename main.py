@@ -22,7 +22,6 @@ print(mensaje_bienvenida)
 tablero_inicial()
 
 
-
 # Ubicacion inicial
 '''Variable  que almacena la posicion inicial del jugador'''
 casillaJugador = 0
@@ -44,7 +43,6 @@ while True:
 
 # Mensaje de saludo al Juagador    
 print(f"Bienvenido:  {usuario}")
-
 
 
 # Nivel de dificultad
@@ -97,7 +95,9 @@ def jugar():
     print ("Puntos: ", puntaje) # Se muestra el puntaje antes de lanzar el dado y avanzar
 
     input("Presiona Enter para lanzar el dado...") # lanzar el dado para obtener el numero de casillas a avanzar
+    
     resultado_dado = lanzar_dado()
+    mostrar_dado(resultado_dado)
     print(f"\nHas lanzado un {resultado_dado}\n")
     casillaJugador += resultado_dado    # Actualiza la casilla del jugador
 
@@ -109,6 +109,7 @@ def jugar():
         puntaje = puntaje + bonus_preguntas 
         guardar_concursante(usuario, puntaje)
         print(f"El  Juego ha finalizado,  Muy bien!!, tu puntaje final es: {puntaje} " )
+        print(mensaje_ganador)
 
                 
     else:
@@ -120,17 +121,17 @@ def jugar():
 el bucle casillaJugador se encarga de darle  continuidad al juego hasta que llegue a la casilla 64 o se terminen las oportunidades de respuesta
 '''
 
-while casillaJugador <= 63 :
+while casillaJugador <= 63 : #se repite el ciclo hasta que el jugador finalice por oportunidades ==0 o por que llego a la casilla 64
     jugar()
     puntaje = puntaje -2
     
-    tipoCasilla = validaCasillas(casillaJugador) # REcibe el tipo de casilla para generar las actividaes al jugador
+    tipoCasilla = validaCasillas(casillaJugador) # Recibe el tipo de casilla para generar las actividaes al jugador
     if tipoCasilla =="Pregunta":
         oportunidades_restantes = hacer_pregunta(oportunidades)
         oportunidades = oportunidades_restantes
 
         if oportunidades_restantes == 0: # Control de numero de oportunidades
-            print(mensaje_final)
+            print(mensaje_perdedor)
             print("Puntos obtenidos: ",puntaje)
             break    
 
@@ -148,4 +149,9 @@ while casillaJugador <= 63 :
         tablero_ubicacion(nuevaUbicacion)
         puntaje = puntaje - 10 # Resta 10 puntos  al jugador como penalidad
     
+
+
+
+
+
 
