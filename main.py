@@ -1,5 +1,4 @@
 from tablero import *
-from ubicacion import *
 from tableroIni import *
 from mensajes import *
 from dado import *
@@ -89,7 +88,6 @@ elif nivel == 3:
 
 '''Inicio del Juego'''
 def jugar():
-    global nuevaUbicacion
     global casillaJugador
     global puntaje
     global nivel
@@ -119,7 +117,6 @@ def jugar():
 
                 
     else:
-        nuevaUbicacion = coordTab[casillaJugador-1]
         tablero_seguimiento(casillaJugador)
         puntaje += resultado_dado
 
@@ -143,7 +140,6 @@ while casillaJugador <= 63 : #se repite el ciclo hasta que el jugador finalice p
 
     elif tipoCasilla == "Premio":
         casillaJugador += 10 # Adiciona 10 posiciones al jugador como premio
-        nuevaUbicacion = coordTab[casillaJugador]
         tablero_seguimiento(casillaJugador)
         print(f"Esta es tu nueva ubicacion, casilla : {casillaJugador}")
 
@@ -152,7 +148,6 @@ while casillaJugador <= 63 : #se repite el ciclo hasta que el jugador finalice p
     elif  tipoCasilla == "Penalidad":
         
         casillaJugador -= 10 # Resta 10 casillas  al jugador por penalizacion
-        nuevaUbicacion = coordTab[casillaJugador]
         print(f"Esta es tu nueva ubicacion, casilla : {casillaJugador}")
         tablero_seguimiento(casillaJugador - 1)
         puntaje = puntaje - 10 # Resta 10 puntos  al jugador como penalidad
