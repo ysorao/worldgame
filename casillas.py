@@ -31,10 +31,10 @@ def validaCasillas(ubicacion):
         print("\nHas caído en la casilla ", ubicacion,  " de tipo PREGUNTA")
         tipoCasilla="Pregunta"
     elif ubicacion in penalidad: 
-        print("\nHas caído en la casilla ", ubicacion,  " de tipo PENALIDAD")
+        print("\nHas caído en la casilla ", ubicacion,  " de tipo PENALIDAD, retrocedes 10 casillas")
         tipoCasilla= "Penalidad"
     elif ubicacion in premio:
-        print("\nHas caído en la casilla ", ubicacion,  " de tipo PREMIO")
+        print("\nHas caído en la casilla ", ubicacion,  " de tipo PREMIO, avanzas 10 casillas")
         tipoCasilla= "Premio"
     elif ubicacion in ganador:
         print("\nHas llegado al final del Juego")

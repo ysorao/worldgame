@@ -11,7 +11,7 @@ def lanzar_dado():
 Esta función dibuja un dado en la consola indicando el numero obtenido despues de lanzarlo, recibe como parametro un valor  que corresponde al resultado de la función lanzar_dado() 
 '''
 def mostrar_dado(valor):
-    print(f"  +---------+\n /         /|\n+---------+ |\n|         | |\n|    {valor}    | +\n|         |/\n+---------+\n")
+    print(f"\n\n     +---------+\n    /         /|\n   +---------+ |\n   |         | |\n   |    {valor}    | +\n   |         |/\n   +---------+\n")
 
 
 
